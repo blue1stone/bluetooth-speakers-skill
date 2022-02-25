@@ -4,11 +4,11 @@ sleep 7s
 
 pactl set-default-sink bluez_sink.7C_96_D2_3A_3D_AE.a2dp_sink
 pactl set-default-source alsa_input.usb-SEEED_ReSpeaker_4_Mic_Array__UAC1.0_-00.analog-mono
-# Activate Pulseaudio noise cancellation
-pactl unload-module module-echo-cancel
-pactl load-module module-echo-cancel aec_method=webrtc
-sleep 2s
-pactl set-default-sink bluez_sink.7C_96_D2_3A_3D_AE.a2dp_sink.echo-cancel
-pactl set-default-source alsa_input.usb-SEEED_ReSpeaker_4_Mic_Array__UAC1.0_-00.analog-mono.echo-cancel
+# Activate Pulseaudio noise cancellation (deactivated because of an increased amount of false positive wake word detections)
+# pactl unload-module module-echo-cancel
+# pactl load-module module-echo-cancel aec_method=webrtc
+# sleep 2s
+# pactl set-default-sink bluez_sink.7C_96_D2_3A_3D_AE.a2dp_sink.echo-cancel
+# pactl set-default-source alsa_input.usb-SEEED_ReSpeaker_4_Mic_Array__UAC1.0_-00.analog-mono.echo-cancel
 
 systemctl --user restart raspotify.service
